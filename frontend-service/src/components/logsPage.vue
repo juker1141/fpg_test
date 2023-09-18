@@ -2,7 +2,7 @@
 import { ref, onMounted } from 'vue';
 const logs = ref<any[]>([]);
 const getData = async () => {
-  const data = await fetch("http://localhost:8080/logs")
+  const data = await fetch(`${import.meta.env.VITE_LOGGER_HOST}/logs`)
   const jsonData = await data.json();
   console.log(jsonData)
   const dataArray = jsonData.logs.map((data: any) => {
@@ -26,7 +26,7 @@ const clearLog = async () => {
       'Content-Type': 'application/json',
     },
   };
-  await fetch("http://localhost:8080/logs", options)
+  await fetch("http://192.168.88.90:8080/logs", options)
 
   logs.value = []
 }

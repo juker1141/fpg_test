@@ -20,12 +20,12 @@ const loggerData = async (status: string, data: string) => {
     body: JSON.stringify(requestData)
   };
 
-  const logData = await fetch("http://localhost:8080/log", options);
+  const logData = await fetch(`${import.meta.env.VITE_LOGGER_HOST}/log`, options);
   const logJsonData = await logData.json()
   console.log(logJsonData)
 
 
-  const getLog = await fetch("http://localhost:8080/logs");
+  const getLog = await fetch(`${import.meta.env.VITE_LOGGER_HOST}/logs`);
   const getLogJson = await getLog.json();
   console.log(getLogJson)
 }
