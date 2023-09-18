@@ -5,7 +5,7 @@ services:
       context: ./frontend-service
       dockerfile: ./frontend-service.dockerfile
     ports:
-      - "3000:80"
+      - "3010:80"
   logger-service:
     build:
       context: ./logger-service
